@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAB 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans default-init-method="myInit" default-destroy-method="cleanup">
+	<!-- <bean id="parenttriangle" class="org.mansi.SpringDemo.Triangle" abstract="true">
+		 <property name="pointA" ref="pointA"></property>
+		<property name="points"/>
+		<list>
+			<ref bean="pointA"/>
+		
+		</list>
+	</bean>
+	<bean id="triangle1" class="org.mansi.SpringDemo.Triangle" parent="parenttriangle">
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property>
+	</bean>
+		 <bean id="triangle2" class="org.mansi.SpringDemo.Triangle" parent="parenttriangle">
+		<property name="pointA" ref="pointA"></property>
+		<property name="points"/>
+		<list merge="true">
+			<ref bean="pointB"/>
+		</list>
+	</bean>	 -->
+	<bean id="triangle" class="org.mansi.SpringDemo.Triangle" autowire="byName" >
+		<property name="pointA" ref="pointA"></property>
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property>
+	</bean>
+		<!--  <property name="points">
+			<list>
+				<ref bean="zeroPoint" />			
+				<ref bean="point2" />
+				<ref bean="point3"  />
+			</list>
+		</property>-->
+	
+		<!--<property name="type" value="equilateral"></property>  
+		<constructor-arg value="Equilateral"></constructor-arg>
+		<constructor-arg value="20" /> 
+		<constructor-arg type="int" value= "20"></constructor-arg> 
+		<constructor-arg type="java.lang.String" value="Equilateral"/> 
+		<constructor-arg index ="0" value="equilateral"></constructor-arg>
+		<constructor-arg index="1" value="20"/>
+		
+		<property name="pointA" >
+			<bean  class="org.mansi.SpringDemo.Point">
+			<property name="x" value="0"></property>
+			<property name="y" value="0"></property>
+		</bean>
+		</property>
+		<property name="pointB">
+			<bean  class="org.mansi.SpringDemo.Point">
+			<property name="x" value="-20"></property>
+			<property name="y" value="0"></property>
+		</bean>
+		</property>
+		<property name="pointC">
+			<bean  class="org.mansi.SpringDemo.Point">
+			<property name="x" value="0"></property>
+			<property name="y" value="20"></property>
+		</bean>
+		</property>
+		<bean id="zeroPoint" class="org.mansi.SpringDemo.Point">
+			<property name="x" value="0"></property>
+			<property name="y" value="0"></property>
+		</bean>
+		<bean id="point2" class="org.mansi.SpringDemo.Point">
+			<property name="x" value="-20"></property>
+			<property name="y" value="0"></property>
+		</bean>
+		<bean id="point3" class="org.mansi.SpringDemo.Point">
+			<property name="x" value="0"></property>
+			<property name="y" value="20"></property>
+		</bean>-->
+		<bean id="pointA" class="org.mansi.SpringDemo.Point">
+			<property name="x" value="0"></property>
+			<property name="y" value="0"></property>
+		</bean>
+		<bean id="pointB" class="org.mansi.SpringDemo.Point">
+			<property name="x" value="-20"></property>
+			<property name="y" value="0"></property>
+		</bean>
+		<bean id="pointC" class="org.mansi.SpringDemo.Point">
+			<property name="x" value="0"></property>
+			<property name="y" value="20"></property>
+		</bean>
+	<!-- <bean class="org.mansi.SpringDemo.MyBeanFactorypp" />
+	<bean class="org.mansi.SpringDemo.pointsconfig.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.properties"></property>
+	</bean> -->
+	<bean id="circle" class="org.mansi.SpringDemo.Circle" >
+		<qualifier value="circleRelated"></qualifier>
+		<!-- <property name="center" ref="pointA"></property> -->
+	</bean>
+	<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanProcessor" />--> 
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanProcessor\" />
+</beans>
+  
+  
+  
